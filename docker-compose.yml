@@ -1,0 +1,31 @@
+version: '3'
+services:
+  web:
+    image: nginx:latest
+    container_name: 'web_app'
+    volumes:
+      - ./src:/var/www/laravel
+      - ./etc/config:/var/configs
+    ports:
+      - "80:80"
+    command: /bin/sh -c "cp /var/configs/nginx.conf /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+    restart: always
+
+  php:
+    image: php:7.1-fpm
+    container_name: 'laravel'
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./src:/var/www/laravel
+    restart: always
+
+  mysql:
+      image: mysql:5.6
+      container_name: 'web_mysql'
+      ports:
+        - "3306:3306"
+      environment:
+        - MYSQL_ROOT_PASSWORD=root
+
+      restart: always
