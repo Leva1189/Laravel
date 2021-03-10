@@ -18,3 +18,9 @@ Route::get('/', function () {
 Route::get('/page', function () {
     return view('page');
 });
+
+Route::get('/env', function () {
+
+//    dump(config('app.timezone'));
+});
+
