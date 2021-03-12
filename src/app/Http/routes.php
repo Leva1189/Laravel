@@ -24,3 +24,7 @@ Route::get('/env', function () {
 //    dump(config('app.timezone'));
 });
 
+Route::get('/about/{id}', 'FirstController@show');
+
+// list pages
+Route::resource('/pages', 'Admin\CoreResource');
