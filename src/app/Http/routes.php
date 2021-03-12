@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', ['as'=>'home', function () {
     return view('welcome');
-});
+}]);
 
-Route::get('/page', function () {
-    return view('page');
-});
+//Route::get('/page', function () {
+//    return view('page');
+//});
 
 Route::get('/env', function () {
 
@@ -28,3 +28,6 @@ Route::get('/about/{id}', 'FirstController@show');
 
 // list pages
 Route::resource('/pages', 'Admin\CoreResource');
+
+//register router MyMiddleware
+Route::get('/article/{page}', ['uses'=>'Admin\Core@getArticle', 'as'=>'article', 'middleware'=>'mymiddle']);
