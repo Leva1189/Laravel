@@ -19,6 +19,12 @@ class CoreResource extends Controller
         //
         echo __METHOD__;
     }
+    
+    public function add()
+    {
+        //
+        echo __METHOD__;
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -40,7 +46,8 @@ class CoreResource extends Controller
     public function store(Request $request)
     {
         //
-        dump($_POST);
+        
+        print_r($_POST);
     }
 
     /**
@@ -52,6 +59,7 @@ class CoreResource extends Controller
     public function show($id)
     {
         //
+        echo $id;
     }
 
     /**

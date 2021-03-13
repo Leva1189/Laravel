@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-use App\Http\Requests;
-
-class FirstController extends Controller
-{
-   public function show($id){
-       //echo __METHOD__;
-
-       echo $id;
-   }
+class FirstController extends Controller {
+	
+	public function show($id) {
+		//echo __METHOD__;
+		
+		echo $id;
+	}
+	
 }
+
+?>

@@ -9,13 +9,19 @@ use App\Http\Controllers\Controller;
 
 class Core extends Controller
 {
+
+    public function __construct() {
+		//$this->middleware('mymiddle');
+	}
+    
     //list materials
-    public function getArticles(){
-
-    }
-
-    //material
+    public function getArticles() {
+		
+	}
+	
+	 //material
     public function getArticle($id) {
-        echo $id;
-    }
+		
+		echo 'Ответ - '.$id;
+	}
 }

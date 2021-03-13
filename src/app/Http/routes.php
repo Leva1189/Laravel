@@ -2,6 +2,27 @@
 
 /*
 |--------------------------------------------------------------------------
+| Routes File
+|--------------------------------------------------------------------------
+|
+| Here is where you will register all of the routes in an application.
+| It's a breeze. Simply tell Laravel the URIs it should respond to
+| and give it the controller to call when that URI is requested.
+|
+*/
+
+Route::get('/', ['as'=>'home','uses'=>'Admin\IndexController@show']);
+
+Route::get('/about',['uses'=>'Admin\AboutController@show','as'=>'about']);
+
+
+Route::get('/articles',['uses'=>'Admin\Core@getArticles','as'=>'articles']);
+
+
+Route::get('/article/{id}',[/*'middleware'=>'mymiddle:home',*/'uses'=>'Admin\Core@getArticle','as'=>'article'])/*->middleware(['mymiddle'])*/;
+
+/*
+|--------------------------------------------------------------------------
 | Application Routes
 |--------------------------------------------------------------------------
 |
@@ -10,24 +31,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::group(['middleware' => ['web']], function () {
+    //
+    ////
 
-Route::get('/', ['as'=>'home', function () {
-    return view('welcome');
-}]);
 
-//Route::get('/page', function () {
-//    return view('page');
-//});
+    ///
 
-Route::get('/env', function () {
-
-//    dump(config('app.timezone'));
 });
-
-Route::get('/about/{id}', 'FirstController@show');
-
-// list pages
-Route::resource('/pages', 'Admin\CoreResource');
-
-//register router MyMiddleware
-Route::get('/article/{page}', ['uses'=>'Admin\Core@getArticle', 'as'=>'article', 'middleware'=>'mymiddle']);
