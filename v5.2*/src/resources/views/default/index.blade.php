@@ -22,6 +22,6 @@
 
 
 @section('content')
-      	@include('default.layouts.content')
+      	@include('default.content')
 @endsection 
 
