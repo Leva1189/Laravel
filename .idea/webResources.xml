@@ -11,6 +11,10 @@
             <path value="file://$PROJECT_DIR$/laravel8/mysql" />
             <path value="file://$PROJECT_DIR$/laravel8/nginx" />
             <path value="file://$PROJECT_DIR$/laravel8/php" />
+            <path value="file://$PROJECT_DIR$/laravel5/etc/mysql" />
+            <path value="file://$PROJECT_DIR$/laravel5/etc/nginx" />
+            <path value="file://$PROJECT_DIR$/laravel5/etc/php" />
+            <path value="file://$PROJECT_DIR$/laravel5/etc" />
           </resourceRoots>
         </entryData>
       </entry>
