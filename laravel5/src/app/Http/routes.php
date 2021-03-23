@@ -38,8 +38,8 @@ Route::match(['get','post'],'/contact/{name?}',['uses'=>'Admin\ContactController
 Route::group(['middleware' => ['web']], function () {
     //
     ////
-
-
+    
+    
     ///
-
+    
 });
