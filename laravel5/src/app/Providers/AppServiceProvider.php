@@ -2,13 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\DB;
-
-use Illuminate\Support\Facades\Response;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Blade;
-
-
+use Blade;
+use Response;
+use DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,7 +18,11 @@ class AppServiceProvider extends ServiceProvider
     {
     	//
     	
-
+    	Response::macro('myRes', function($value) {
+    		
+    		return Response::make($value);
+    		
+    	});
     	
     	DB::listen(function ($query) {
     		

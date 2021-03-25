@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use App\Article;
-use Illuminate\Support\Facades\DB;
 
 class ArticlesSeeder extends Seeder
 {

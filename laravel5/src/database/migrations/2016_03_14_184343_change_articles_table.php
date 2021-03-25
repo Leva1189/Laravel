@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\Schema;
 
 class ChangeArticlesTable extends Migration
 {
@@ -17,12 +16,12 @@ class ChangeArticlesTable extends Migration
         if(Schema::hasTable('articles')) {
 				Schema::table('articles', function (Blueprint $table) {
 	            //
-
+	            
 	            if(!Schema::hasColumn('alias')) {
 					 $table->string('alias',100)->default('default');
 				}
 
-
+	            
 	        });
 		}
         
