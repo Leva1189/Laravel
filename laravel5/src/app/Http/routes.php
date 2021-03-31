@@ -21,7 +21,7 @@ Route::get('/articles',['uses'=>'Admin\Core@getArticles','as'=>'articles']);
 
 Route::get('/article/{id}',['uses'=>'Admin\Core@getArticle','as'=>'article']);
 
-Route::get('/contact', ['uses'=>'Admin\ContactController@show','as'=>'contact']);
+Route::get('/contact', ['middleware' => ['auth'], 'uses'=>'Admin\ContactController@show','as'=>'contact']);
 Route::post('/contact', ['uses'=>'Admin\ContactController@store']);
 
 
@@ -35,12 +35,25 @@ Route::post('/contact', ['uses'=>'Admin\ContactController@store']);
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-
+/*
 Route::group(['middleware' => ['web']], function () {
     //
     ////
-    
-    
+
+
     ///
-    
+
+});
+
+
+
+Route::get('/home', 'HomeController@index');
+*/
+Route::auth();
+//admin/add/post
+Route::group(['prefix'=>'admin', 'middleware'=>['web', 'auth']], function (){
+
+    //admin/
+    Route::get('/', ['uses'=>'Admin\AdminAdminController@show', 'as'=>'admin_index']);
+    Route::get('/add/post', ['uses'=>'Admin\AdminAdminPostController@create', 'as'=>'admin_add_post']);
 });
